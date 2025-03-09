@@ -13,7 +13,7 @@ h1{
 }
 
 .container{
-    background-color: #81A684;
+    /* background-color: #81A684; */
     height:400px;
     width:400px;
     position: fixed;
@@ -41,4 +41,28 @@ h1{
     box-shadow: 0 0 1rem rgba(0,0,0,.6);
     font-size: 50px;
     color: #b0413e;
+}
+
+#reset{
+    padding:1rem;
+    position: fixed;
+    top:75%;
+    left:40%;
+    color:white;
+    background-color: black;
+    border:none;
+    border-radius: 1rem;
+    font-size: large;
+}
+
+#new{
+    padding: 1rem;
+    position: fixed;
+    top:75%;
+    left:50%;
+    color:white;
+    background-color: black;
+    border:none;
+    border-radius: 1rem;
+    font-size: large;
 }
