@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: #466060;
+    text-align: center ;
+}
+
+h1{
+    color: darkgray;
+}
+
+.container{
+    background-color: #81A684;
+    height:400px;
+    width:400px;
+    position: fixed;
+    top:25%;
+    left:36%;
+}
+
+#game{
+    height: 280px;
+    width: 280px;
+    /* background-color: #9EBC9F; */
+    position: fixed;
+    top:33%;
+    left:40%;
+    display: flex;
+    flex-wrap:wrap;
+    gap:5px;
+}
+
+.box{
+    height:90px;
+    width:90px;
+    border-radius: 1rem;
+    border:none;
+    box-shadow: 0 0 1rem rgba(0,0,0,.6);
+    font-size: 50px;
+    color: #b0413e;
+}
