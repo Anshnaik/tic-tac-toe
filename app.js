@@ -1,7 +1,8 @@
 let box=document.querySelectorAll(".box");
 let resetbtn=document.querySelector("reset");
 let newbtn=document.querySelector("new");
-
+let msgContainer=document.querySelector(".hide");
+let msg=document.querySelector("#msg");
 let turn0=true;
 
 const winPatterns=[
@@ -32,8 +33,24 @@ box.forEach((i)=>{
     
 })
 
+const showwinner=(winner)=>{
+        msg.innerText=`Winner is $(winner)`;
+        msgContainer.classList.remove(".hide");
+}  
+
+
 const chkwinner=()=> {
     for(i of winPatterns){
-        let pos1=box[i[0]].inner
+        console.log(box[i[0]].innerText,box[i[1]].innerText,box[i[2]].innerText);
+
+        let pos1=box[i[0]].innerText;
+        let pos2=box[i[1]].innerText;
+        let pos3=box[i[2]].innerText;
+
+        if(pos1!="" && pos2!="" & pos3!=""){
+            if(pos1===pos2 && pos2===pos3){
+                showwinner(pos1);
+            }
+        }
     }
 }

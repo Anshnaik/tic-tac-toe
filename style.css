@@ -66,3 +66,12 @@ h1{
     border-radius: 1rem;
     font-size: large;
 }
+
+#msg{
+    color: #ffffc7;
+    font-size: 20px;;
+}
+
+.hide{
+    display: none;
+}
