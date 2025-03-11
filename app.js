@@ -2,8 +2,13 @@ let box=document.querySelectorAll(".box");
 let resetbtn=document.querySelector("#reset");
 let newbtn=document.querySelector("#new");
 let msgContainer=document.querySelector(".hide");
+let msg2Container=document.querySelector(".msg2-container");
 let msg=document.querySelector("#msg");
 let turn0=true;
+let count =0;
+
+
+
 
 newbtn.classList.add("hide");
 const winPatterns=[
@@ -21,6 +26,7 @@ const reset=()=>{
     turn0=true;
     enablebox();
     msgContainer.classList.add("hide");
+    msg2Container.classList.add("hide");
 }
 const enablebox=()=>{
     for(let i of box){
@@ -38,6 +44,7 @@ const disablebox=()=>{
 
 box.forEach((i)=>{
     i.addEventListener("click",()=>{
+        count++;
         if(turn0==="true"){
             i.innerText="O";
             turn0="false";
@@ -48,7 +55,13 @@ box.forEach((i)=>{
         }
         i.disabled=true;
 
-        chkwinner();
+        if(count==9 && !iswinner ){
+
+            msg2Container.classList.remove("hide");
+            newbtn.classList.remove("hide");
+        }
+
+        iswinner=chkwinner();
         newbtn.document.classList.remove("hide");
     })
     
@@ -73,6 +86,7 @@ const chkwinner=()=> {
             if(pos1===pos2 && pos2===pos3){
                 showwinner(pos1);
                 newbtn.classList.remove("hide");
+                return true;
             }
         }
     }
