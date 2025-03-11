@@ -1,10 +1,11 @@
 let box=document.querySelectorAll(".box");
-let resetbtn=document.querySelector("reset");
-let newbtn=document.querySelector("new");
+let resetbtn=document.querySelector("#reset");
+let newbtn=document.querySelector("#new");
 let msgContainer=document.querySelector(".hide");
 let msg=document.querySelector("#msg");
 let turn0=true;
 
+newbtn.classList.add("hide");
 const winPatterns=[
     [0,1,2],
     [3,4,5],
@@ -15,6 +16,25 @@ const winPatterns=[
     [0,4,8],
     [2,4,6]
 ];
+
+const reset=()=>{
+    turn0=true;
+    enablebox();
+    msgContainer.classList.add("hide");
+}
+const enablebox=()=>{
+    for(let i of box){
+        i.disabled=false;
+        i.innerText="";
+    }
+    
+}
+
+const disablebox=()=>{
+    for(let i of box){
+        i.disabled=true;
+    }
+}
 
 box.forEach((i)=>{
     i.addEventListener("click",()=>{
@@ -29,13 +49,15 @@ box.forEach((i)=>{
         i.disabled=true;
 
         chkwinner();
+        newbtn.document.classList.remove("hide");
     })
     
 })
 
 const showwinner=(winner)=>{
-        msg.innerText=`Winner is $(winner)`;
-        msgContainer.classList.remove(".hide");
+        msg.innerText=`Winner is ${winner}`;
+        msgContainer.classList.remove("hide");
+        disablebox();
 }  
 
 
@@ -54,3 +76,6 @@ const chkwinner=()=> {
         }
     }
 }
+
+newbtn.addEventListener("click",reset);
+resetbtn.addEventListener("click",reset);
